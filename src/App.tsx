@@ -4,10 +4,11 @@ import { fetchQuizQuestions } from "./API";
 
 //Types
 import { QuestionState, Difficulty } from "./API";
-import { type } from "os";
+
 
 // Styles
 import { GlobalStyle, Wrapper } from "./App.styles";
+import { Button } from "@material-ui/core";
 
 export type AnswerObject = {
   question: string;
@@ -28,7 +29,7 @@ const App = () => {
 
   // console.log(fetchQuizQuestions(TOTAL_QUESTIONS, Difficulty.EASY));
 
-  console.log(questions);
+  // console.log(questions);
 
   const startTrivia = async () => {
     setLoading(true);
@@ -86,9 +87,14 @@ const App = () => {
       <Wrapper className="App">
         <h1>React Quize</h1>
         {gameOver || userAnswers.length === TOTAL_QUESTIONS ? (
-          <button className="start" onClick={startTrivia}>
+          <Button
+            variant="outlined"
+            color="primary"
+            className="start"
+            onClick={startTrivia}
+          >
             Start
-          </button>
+          </Button>
         ) : null}
 
         {!gameOver ? <p className="score">Score:{score}</p> : null}
@@ -109,10 +115,15 @@ const App = () => {
         !loading &&
         userAnswers.length === number + 1 &&
         number !== TOTAL_QUESTIONS - 1 ? (
-          <button className="next" onClick={nextQuestion}>
+          <Button
+            variant="outlined"
+            color="primary"
+            className="next"
+            onClick={nextQuestion}
+          >
             {" "}
             Next Qouestion{" "}
-          </button>
+          </Button>
         ) : null}
       </Wrapper>
     </>

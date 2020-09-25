@@ -1,4 +1,4 @@
-import { type } from "os";
+
 import { shuffleArray } from "./util";
 export type Question = {
   category: string;
